@@ -1,0 +1,25 @@
+<section class="container">
+
+  <!-- evendo de form ngSubimit-->
+  <form class="formulario" (ngSubmit)="transferir()">
+    <h2 class="formulario_titulo">Nova Transferência</h2>
+
+    <div class="form-field">
+      <label class="form-field_label" for="valor">Valor</label>
+      <input class="form-field_input" id="valor" type="text" [(ngModel)]="valor" name="valor">
+    </div>
+
+    <!-- two way databinding com ngModel-->
+    <!-- necessario utilizar os names dos inptus para o ngModel funfar -->
+    <div class="form-field">
+      <label class="form-field_label" for="destino">Destino</label>
+      <input class="form-field_input" id="valor" type="text" [(ngModel)]="destino" name="destino">
+    </div>
+
+    <div class="botao-wrapper">
+      <button class="botao" type="submit">Transferir</button>
+    </div>
+
+  </form>
+
+</section>
