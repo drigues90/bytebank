@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,18 +7,22 @@ import { NovaTransferenciaComponent } from './nova-transferencia/nova-transferen
 import { FormsModule } from '@angular/forms';
 import { ExtratoComponent } from './extrato/extrato.component';
 
+//Configuração de locale
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localePt, 'pt');
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    NovaTransferenciaComponent,
-    ExtratoComponent
+  declarations: [AppComponent, NovaTransferenciaComponent, ExtratoComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt' },
+    {
+      provide: DEFAULT_CURRENCY_CODE,
+      useValue: 'BRL',
+    },
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
